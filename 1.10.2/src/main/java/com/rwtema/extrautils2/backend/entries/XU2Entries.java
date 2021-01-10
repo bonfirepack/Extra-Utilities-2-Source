@@ -36,6 +36,10 @@ import com.rwtema.extrautils2.quarry.BlockQuarry;
 import com.rwtema.extrautils2.quarry.BlockQuarryProxy;
 import com.rwtema.extrautils2.quarry.TileQuarry;
 import com.rwtema.extrautils2.quarry.TileQuarryProxy;
+import com.rwtema.extrautils2.quarry.enderquarry.BlockEnderMarker;
+import com.rwtema.extrautils2.quarry.enderquarry.BlockEnderQuarry;
+import com.rwtema.extrautils2.quarry.enderquarry.TileEntityEnderMarker;
+import com.rwtema.extrautils2.quarry.enderquarry.TileEnderQuarry;
 import com.rwtema.extrautils2.structure.PatternRecipe;
 import com.rwtema.extrautils2.tile.*;
 import com.rwtema.extrautils2.transfernodes.*;
@@ -64,6 +68,7 @@ import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.inventory.ContainerWorkbench;
 import net.minecraft.item.EnumDyeColor;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
@@ -81,6 +86,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingOreRecipe;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.oredict.OreDictionary;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -1299,11 +1305,11 @@ public class XU2Entries {
 			addShaped("battery", newStack(), "SSS", "rRr", "SSS", 'S', stoneburnt, 'r', "blockRedstone", 'R', redstoneCrystal);
 		}
 	};
+	public static BlockClassEntry<BlockEnderQuarry> ender_quarry = new BlockClassEntry<BlockEnderQuarry>(BlockEnderQuarry.class, TileEnderQuarry.class) {
+	};
+	public static BlockClassEntry<BlockEnderMarker> ender_marker = new BlockClassEntry<BlockEnderMarker>(BlockEnderMarker.class, TileEntityEnderMarker.class) {
+	};
 	public static BlockClassEntry<BlockQuarryProxy> quarry_proxy = new BlockClassEntry<BlockQuarryProxy>(BlockQuarryProxy.class, TileQuarryProxy.class) {
-		@Override
-		public Set<Entry<?>> getDependencies() {
-			return ImmutableSet.of(quarry, specialdim);
-		}
 
 		@Override
 		public void addRecipes() {
@@ -1312,10 +1318,6 @@ public class XU2Entries {
 	};
 	//	public static DimensionEntry dream_world = new DimensionEntry("dream_world", -22322, WorldProviderDreamWorld.class, false);
 	public static BlockClassEntry<BlockQuarry> quarry = new BlockClassEntry<BlockQuarry>(BlockQuarry.class, TileQuarry.class) {
-		@Override
-		public Set<Entry<?>> getDependencies() {
-			return ImmutableSet.of(quarry_proxy, specialdim);
-		}
 
 		@Override
 		public void addRecipes() {
@@ -1333,8 +1335,6 @@ public class XU2Entries {
 							.build(),
 					newStack(), quarry_proxy.newStack()
 			);
-
-			addShaped("quarry_base", newStack(), "mem", "ede", "mem", 'm', Blocks.END_STONE, 'd', snowGlobe.isActive() ? "magic_snow_globe" : "netherStar", 'e', stoneburnt);
 		}
 
 		@Nonnull

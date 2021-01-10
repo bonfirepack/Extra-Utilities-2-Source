@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockQuarry extends XUBlockStatic {
+
 	public BlockQuarry() {
 		setLightLevel(1);
 	}

@@ -1,0 +1,31 @@
+{
+  "result": {
+    "item": "extrautils2:quarry"
+  },
+  "pattern":[
+    "EDE",
+    "CSC",
+    "EQE"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "E": {
+      "item": "actuallyadditions:block_misc",
+      "data": 8
+    },
+    "D": {
+      "item": "industrialforegoing:infinity_drill",
+      "data": 0
+    },
+    "C": {
+      "item": "enderio:item_capacitor_vivid"
+    },
+    "S": {
+      "item": "extrautils2:snowglobe",
+      "data": 1
+    },
+    "Q": {
+      "item": "extrautils2:enderquarry"
+    }
+  }
+}

@@ -344,6 +344,14 @@ variants={
 
 models/item/quarry.json
 
+# Ender Quarry
+blockstates/ender_quarry.json
+variants={
+	normal
+}
+
+models/item/ender_quarry.json
+
 # Wooden Spikes
 blockstates/spike_wood.json
 variants={

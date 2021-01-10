@@ -1,0 +1,14 @@
+{
+  "result": {
+    "item": "extrautils2:endermarker"
+  },
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:ender_eye"
+    },
+    {
+      "item": "minecraft:redstone_torch"
+    }
+  ]
+}

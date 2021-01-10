@@ -6,6 +6,7 @@ import com.mojang.authlib.GameProfile;
 import com.rwtema.extrautils2.network.NetworkHandler;
 import com.rwtema.extrautils2.network.XUPacketServerToClient;
 import com.rwtema.extrautils2.power.player.PlayerPowerManager;
+import com.rwtema.extrautils2.quarry.enderquarry.IChunkLoad;
 import com.rwtema.extrautils2.utils.XURandom;
 import com.rwtema.extrautils2.utils.datastructures.WeakLinkedSet;
 import com.rwtema.extrautils2.utils.helpers.PlayerHelper;
@@ -325,11 +326,23 @@ public class PowerManager {
 	public void onChunkUnload(ChunkEvent.Load event) {
 		if (!event.getWorld().isRemote)
 			unloadedChunkManager.dirty = true;
+
+		for (final Object t : event.getChunk().getTileEntityMap().values()) {
+			if (t instanceof IChunkLoad) {
+				((IChunkLoad)t).onChunkLoad();
+			}
+		}
 	}
 
 	@SubscribeEvent
 	public void onChunkUnload(ChunkEvent.Unload event) {
 		unloadedChunkManager.dirty = true;
+
+		for (final Object t : event.getChunk().getTileEntityMap().values()) {
+			if (t instanceof IChunkLoad) {
+				((IChunkLoad)t).onChunkUnload();
+			}
+		}
 	}
 
 	@SubscribeEvent

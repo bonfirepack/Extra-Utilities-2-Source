@@ -1,0 +1,32 @@
+{
+  "result": {
+    "item": "extrautils2:enderquarry"
+  },
+  "pattern":[
+    "EPE",
+    "DMD",
+    "ECE"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "E": {
+      "item": "actuallyadditions:block_misc",
+      "data": 8
+    },
+    "P": {
+      "item": "mekanismtools:diamondpaxel",
+      "data": 0
+    },
+    "C": {
+      "item": "enderio:item_basic_capacitor",
+      "data": 2
+    },
+    "D": {
+      "item": "extrautils2:compresseddirt",
+      "data": 1
+    },
+    "M": {
+      "item": "industrialforegoing:laser_drill"
+    }
+  }
+}
